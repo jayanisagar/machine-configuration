@@ -31,9 +31,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -127,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "parle-agro"
+  "defaultProject": "parle-agro",
+  "cli": {
+    "analytics": "6e6d177d-08dd-4192-91f4-b843504fe4f6"
+  }
 }

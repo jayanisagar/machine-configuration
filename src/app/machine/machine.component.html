@@ -1,0 +1,45 @@
+<div class="container">
+    <div>
+        Select Plant:
+        <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="selectPlan" (ngModelChange)="onPlanChange($event)">
+                <mat-option *ngFor="let plant of plantList" [value]="plant?.id">
+                    {{plant?.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        Select Machine/ Line:
+        <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="SelectMachine">
+                <mat-option *ngFor="let machine of machineLineFilter" [value]="machine?.id">
+                    {{machine?.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        Packaging Test
+
+    </div>
+
+    <div>
+        <ng-container *ngFor="let item of timeWiseList; let i = index;">
+            <span>
+                <app-configure [index]="i" [data]="item" (onCreateConfigure)="onCreateConfigure($event)" #configureCom>
+                </app-configure>
+            </span>
+        </ng-container>
+    </div>
+
+    
+
+   
+</div>
+<div class="clearfix"></div>
+<div class="col-12">
+    <button class="btn btn-primary float-right" (click)="submit()">Submit</button>
+    </div>

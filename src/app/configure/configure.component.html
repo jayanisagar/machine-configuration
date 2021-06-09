@@ -1,0 +1,119 @@
+<div class=" grid-col">
+    <span *ngIf="index == 0" class="grid-box">
+        <div class="hight-text"></div>
+        <div class="hight-text">Full Volume All Valves</div>
+        <div class="hight-text" *ngIf="index == 0">Full Volume 3 All Valves every Hour</div>
+        <div class="hight-text" *ngIf="index == 0">Closure Torque</div>
+        <div class="hight-text" *ngIf="index == 0">Closure - Jump test</div>
+        <div class="hight-text" *ngIf="index == 0">Closure - Plifer band</div>
+        <div class="hight-text" *ngIf="index == 0">Closure - Secure Seal</div>
+        <div class="hight-text" *ngIf="index == 0">Stress Crack Test</div>
+        <div class="hight-text" *ngIf="index == 0">Drop Test</div>
+        <div class="hight-text" *ngIf="index == 0"> Package Appearance</div>
+        <div class="hight-text" *ngIf="index == 0">Date Coding and Rub test</div>
+    </span>
+    <span class="grid-box">
+        <form [formGroup]="formGroup">
+            <div class="hight-text">
+                {{formGroup?.get('start_time')?.value}} <br />
+                {{formGroup?.get('end_time')?.value}}
+            </div>
+            <div class="hight-text">
+                <mat-form-field>
+                    <input matInput formControlName="full_volume_all_valves" type="text" required
+                        (keydown)="numberValidation($event)" />
+                </mat-form-field>
+
+                <span class="text-danger" *ngIf="getFormControl('full_volume_all_valves')?.touched && 
+                getFormControl('full_volume_all_valves')?.errors?.required">Enter Value
+                </span>
+
+                <span class="text-danger"  *ngIf="!getFormControl('full_volume_all_valves')?.errors?.required &&
+                (getFormControl('full_volume_all_valves')?.errors?.min || 
+                getFormControl('full_volume_all_valves')?.errors?.max)">       
+                     Enter 5 to 10 range
+                </span>
+            </div>
+            <div class="hight-text">
+
+                <mat-form-field>
+                    <input matInput formControlName="full_volume_3_all_valves_every_hour" type="number" required />
+                </mat-form-field>
+                <span class="text-danger" *ngIf="getFormControl('full_volume_3_all_valves_every_hour')?.touched && 
+                getFormControl('full_volume_3_all_valves_every_hour')?.errors?.required">Enter Value
+                </span>
+
+                <span class="text-danger"  *ngIf="!getFormControl('full_volume_3_all_valves_every_hour')?.errors?.required &&
+                (getFormControl('full_volume_3_all_valves_every_hour')?.errors?.min || 
+                getFormControl('full_volume_3_all_valves_every_hour')?.errors?.max)">       
+                     Enter 2.5 to 5.0 range
+                </span>
+            </div>
+
+            <div class="hight-text">
+                <mat-slide-toggle formControlName="closure_torque"></mat-slide-toggle>
+                <span class="text-danger" *ngIf="getFormControl('closure_torque')?.touched && 
+                getFormControl('closure_torque')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+
+                <mat-slide-toggle formControlName="closure_jump_test"></mat-slide-toggle>
+                <span class="text-danger" *ngIf="getFormControl('closure_jump_test')?.touched && 
+                getFormControl('closure_jump_test')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+
+                <mat-slide-toggle formControlName="closure_plifer_band"></mat-slide-toggle>
+                <span class="text-danger" *ngIf="getFormControl('closure_plifer_band')?.touched && 
+                getFormControl('closure_plifer_band')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+                <mat-slide-toggle formControlName="closure_secure_seal"></mat-slide-toggle>
+                <span class="text-danger" *ngIf="getFormControl('closure_secure_seal')?.touched && 
+                getFormControl('closure_secure_seal')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+
+                <mat-slide-toggle formControlName="stress_crack_test"></mat-slide-toggle>
+                <span class="text-danger" *ngIf="getFormControl('stress_crack_test')?.touched && 
+                getFormControl('stress_crack_test')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+
+                <mat-slide-toggle formControlName="drop_test"></mat-slide-toggle>
+                <span class="text-danger" *ngIf="getFormControl('drop_test')?.touched && 
+                getFormControl('drop_test')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+
+                <mat-form-field>
+                    <input matInput formControlName="package_appearance" type="text" required />
+                </mat-form-field>
+                <span class="text-danger" *ngIf="getFormControl('package_appearance')?.touched && 
+                getFormControl('package_appearance')?.errors?.required">Enter Value
+                </span>
+            </div>
+
+            <div class="hight-text">
+                <mat-form-field>
+                    <input matInput formControlName="date_coding_and_rub_test" type="text" required />
+                </mat-form-field>
+                <span class="text-danger" *ngIf="getFormControl('date_coding_and_rub_test')?.touched && 
+                getFormControl('date_coding_and_rub_test')?.errors?.required">Enter Value
+                </span>
+            </div>
+        </form>
+    </span>
+</div>
